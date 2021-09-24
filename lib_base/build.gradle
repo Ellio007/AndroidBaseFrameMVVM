@@ -9,8 +9,8 @@ import com.quyunshuo.androidbaseframemvvm.buildsrc.*
 
 android {
 
-    buildFeatures {
-        viewBinding = true
+    viewBinding {
+        enabled = true
     }
 
     resourcePrefix "base_"
@@ -37,6 +37,8 @@ dependencies {
     api DependencyConfig.JetPack.LiveData
     api DependencyConfig.JetPack.Lifecycle
     api DependencyConfig.JetPack.HiltCore
+    api DependencyConfig.JetPack.Room
+    api DependencyConfig.JetPack.RoomKTX
 
     api DependencyConfig.GitHub.Gson
     api DependencyConfig.GitHub.MMKV

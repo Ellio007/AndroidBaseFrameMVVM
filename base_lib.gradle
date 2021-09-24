@@ -1,7 +1,6 @@
 //****************************************
 //********* lib 模块的公共脚本配置 **********
 //****************************************
-
 import com.quyunshuo.androidbaseframemvvm.buildsrc.*
 
 apply plugin: 'com.android.library'
@@ -10,12 +9,11 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
 
 android {
-    compileSdkVersion ProjectBuildConfig.compileSdkVersion
-    buildToolsVersion ProjectBuildConfig.buildToolsVersion
+    compileSdk ProjectBuildConfig.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion ProjectBuildConfig.minSdkVersion
-        targetSdkVersion ProjectBuildConfig.targetSdkVersion
+        minSdk ProjectBuildConfig.minSdkVersion
+        targetSdk ProjectBuildConfig.targetSdkVersion
         versionCode ProjectBuildConfig.versionCode
         versionName ProjectBuildConfig.versionName
 

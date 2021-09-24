@@ -15,12 +15,11 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
 
 android {
-    compileSdkVersion ProjectBuildConfig.compileSdkVersion
-    buildToolsVersion ProjectBuildConfig.buildToolsVersion
+    compileSdk ProjectBuildConfig.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion ProjectBuildConfig.minSdkVersion
-        targetSdkVersion ProjectBuildConfig.targetSdkVersion
+        minSdk ProjectBuildConfig.minSdkVersion
+        targetSdk ProjectBuildConfig.targetSdkVersion
         versionCode ProjectBuildConfig.versionCode
         versionName ProjectBuildConfig.versionName
         testInstrumentationRunner DependencyConfig.AndroidX.AndroidJUnitRunner
@@ -41,9 +40,9 @@ android {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
-    buildFeatures {
-        viewBinding = true
-    }
+     viewBinding {
+            enabled = true
+        }
 
     sourceSets {
         main {
@@ -98,4 +97,5 @@ dependencies {
     kapt DependencyConfig.JetPack.HiltApt
     kapt DependencyConfig.JetPack.HiltAndroidx
     kapt DependencyConfig.JetPack.LifecycleCompilerAPT
+    kapt DependencyConfig.JetPack.RoomCompiler
 }

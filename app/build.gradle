@@ -11,17 +11,16 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
 
 android {
-    compileSdkVersion ProjectBuildConfig.compileSdkVersion
-    buildToolsVersion ProjectBuildConfig.buildToolsVersion
+    compileSdk ProjectBuildConfig.compileSdkVersion
 
     defaultConfig {
-        applicationId ProjectBuildConfig.applicationId
-        minSdkVersion ProjectBuildConfig.minSdkVersion
-        targetSdkVersion ProjectBuildConfig.targetSdkVersion
-        versionCode ProjectBuildConfig.versionCode
-        versionName ProjectBuildConfig.versionName
-        testInstrumentationRunner DependencyConfig.AndroidX.AndroidJUnitRunner
-        multiDexKeepProguard file("multidexKeep.pro")
+        applicationId = ProjectBuildConfig.applicationId
+        minSdk = ProjectBuildConfig.minSdkVersion
+        targetSdk = ProjectBuildConfig.targetSdkVersion
+        versionCode = ProjectBuildConfig.versionCode
+        versionName = ProjectBuildConfig.versionName
+        testInstrumentationRunner = DependencyConfig.AndroidX.AndroidJUnitRunner
+        multiDexKeepProguard = file("multidexKeep.pro")
 
         ndk {
             // 设置支持的SO库架构
@@ -98,4 +97,5 @@ dependencies {
     kapt DependencyConfig.GitHub.AutoServiceAnnotations
     kapt DependencyConfig.JetPack.HiltApt
     kapt DependencyConfig.JetPack.HiltAndroidx
+    kapt DependencyConfig.JetPack.RoomCompiler
 }

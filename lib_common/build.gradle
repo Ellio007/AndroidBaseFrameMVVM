@@ -12,9 +12,9 @@ android {
         resValue "string", "BUGLY_APP_ID", SDKKeyConfig.BUGLY_APP_ID
     }
 
-    buildFeatures {
-        viewBinding = true
-    }
+     viewBinding {
+            enabled = true
+        }
 
     resourcePrefix "common_"
 }
@@ -32,4 +32,5 @@ dependencies {
     kapt DependencyConfig.JetPack.HiltApt
     kapt DependencyConfig.JetPack.HiltAndroidx
     kapt DependencyConfig.JetPack.LifecycleCompilerAPT
+    kapt DependencyConfig.JetPack.RoomCompiler
 }

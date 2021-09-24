@@ -1,7 +1,7 @@
 package com.quyunshuo.module.home.activity
 
 import android.util.Log
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import com.quyunshuo.androidbaseframemvvm.base.mvvm.vm.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -22,16 +22,24 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(private val mRepository: HomeRepository) : BaseViewModel() {
 
-    val data = MutableLiveData<String>()
+//    val data = MutableLiveData<String>()
+
+    fun requestUserList() {
+        viewModelScope.launch(Dispatchers.IO) {
+            mRepository.requestUserList()
+        }
+    }
 
     /**
      * 模拟获取数据
      */
-    fun getData() {
-        viewModelScope.launch(Dispatchers.IO) {
-            mRepository.getData()
-                .catch { Log.d("qqq", "getData: $it") }
-                .collect { data.postValue(it) }
-        }
+    fun getUserList() = liveData {
+        mRepository.getDBUserList()
+            .catch { Log.d("qqq", "getData: $it") }
+            .collect {
+                if (it != null) {
+                    emit(it)
+                }
+            }
     }
 }
