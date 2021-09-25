@@ -31,6 +31,21 @@ object SpUtils {
             else -> false
         }
 
+    /**
+     * 获取数据（简化）
+     * 根据defValue类型自动匹配需要执行的方法
+     */
+    fun get(key: String, defValue: Any) =
+        when (defValue) {
+            is Int -> getInt(key, defValue)
+            is Long -> getLong(key, defValue)
+            is Float -> getFloat(key, defValue)
+            is Double -> getDouble(key, defValue)
+            is String -> getString(key, defValue)
+            is Boolean -> getBoolean(key, defValue)
+            else -> false
+        }
+
     fun putString(key: String, value: String): Boolean? = MMKV.defaultMMKV()?.encode(key, value)
 
     fun getString(key: String, defValue: String): String? =
