@@ -7,7 +7,7 @@ package com.quyunshuo.androidbaseframemvvm.buildsrc
  * @since 4/24/21 5:56 PM
  */
 object ProjectBuildConfig {
-    const val compileSdkVersion = 30
+    const val compileSdkVersion = 31
     const val buildToolsVersion = "30.0.1"
     const val applicationId = "com.quyunshuo.androidbaseframemvvm"
     const val minSdkVersion = 21

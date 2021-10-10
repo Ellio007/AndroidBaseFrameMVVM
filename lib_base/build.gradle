@@ -25,6 +25,7 @@ dependencies {
     api DependencyConfig.AndroidX.ActivityKtx
     api DependencyConfig.AndroidX.FragmentKtx
     api DependencyConfig.AndroidX.MultiDex
+    api DependencyConfig.AndroidX.SplashScreen
 
     api DependencyConfig.Android.Material
 

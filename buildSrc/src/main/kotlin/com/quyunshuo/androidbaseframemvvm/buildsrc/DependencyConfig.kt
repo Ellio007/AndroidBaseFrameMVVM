@@ -25,6 +25,7 @@ object DependencyConfig {
         const val ActivityKtx = "1.1.0"
         const val FragmentKtx = "1.2.5"
         const val MultiDex = "2.0.1"
+        const val SplashScreen = "1.0.0-alpha01"
 
         // Android---------------------------------------------------------------
         const val Junit = "4.13"
@@ -81,6 +82,7 @@ object DependencyConfig {
         const val ActivityKtx = "androidx.activity:activity-ktx:${Version.ActivityKtx}"
         const val FragmentKtx = "androidx.fragment:fragment-ktx:${Version.FragmentKtx}"
         const val MultiDex = "androidx.multidex:multidex:${Version.MultiDex}"
+        const val SplashScreen = "androidx.core:core-splashscreen:${Version.SplashScreen}"
     }
 
     /**
