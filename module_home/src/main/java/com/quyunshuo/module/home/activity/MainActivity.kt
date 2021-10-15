@@ -1,13 +1,13 @@
 package com.quyunshuo.module.home.activity
 
 import android.graphics.Color
-import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.core.splashscreen.SplashScreen
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.alibaba.android.arouter.launcher.ARouter
 import com.quyunshuo.androidbaseframemvvm.base.ktx.observe
+import com.quyunshuo.androidbaseframemvvm.common.constant.RouteUrl
 import com.quyunshuo.androidbaseframemvvm.common.ui.BaseActivity
 import com.quyunshuo.module.home.databinding.HomeActivityMainBinding
+import com.quyunshuo.module.home.viewmodel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -19,11 +19,6 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : BaseActivity<HomeActivityMainBinding, HomeViewModel>() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        // 初始化闪屏页面，splashScreen对象可以设置一些属性
-        val splashScreen: SplashScreen = installSplashScreen()
-        super.onCreate(savedInstanceState)
-    }
     /**
      * 通过 viewModels() + Hilt 获取 ViewModel 实例
      */
@@ -31,8 +26,9 @@ class MainActivity : BaseActivity<HomeActivityMainBinding, HomeViewModel>() {
 
     override fun HomeActivityMainBinding.initView() {
         goToNextBtn.setOnClickListener {
-            mViewModel.requestUserList()
-//            startActivity(Intent(this@MainActivity, InternalPagerActivity::class.java))
+            ARouter.getInstance().build(RouteUrl.Home.InternalPager).navigation()
+//            mViewModel.requestUserList()
+//            startActivity(Intent(this@MainActivity, SecondActivity::class.java))
         }
     }
 

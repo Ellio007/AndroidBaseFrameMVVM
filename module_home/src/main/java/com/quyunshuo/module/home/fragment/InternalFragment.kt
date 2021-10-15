@@ -1,7 +1,6 @@
 package com.quyunshuo.module.home.fragment
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.viewModels
 import com.quyunshuo.androidbaseframemvvm.base.utils.status.ViewStatusHelper
 import com.quyunshuo.androidbaseframemvvm.common.ui.BaseFragment
@@ -25,13 +24,14 @@ class InternalFragment : BaseFragment<HomeFragmentInternalLayoutBinding, Interna
     /***
      * 注册帮助类
      */
-    override fun onRegisterStatusHelper(): ViewStatusHelper? {
+    override fun onRegisterStatusHelper(): ViewStatusHelper {
         mInternalFragmentStatusHelper = InternalFragmentStatusHelper(super.onRegisterStatusHelper())
         return mInternalFragmentStatusHelper
     }
 
-    override fun HomeFragmentInternalLayoutBinding.initView() {}
+    override fun HomeFragmentInternalLayoutBinding.initView() {
 
+    }
 
     override fun initObserve() {
         mViewModel.increase(mInternalFragmentStatusHelper.rebuildSize)
@@ -63,13 +63,15 @@ class InternalFragment : BaseFragment<HomeFragmentInternalLayoutBinding, Interna
     /**
      * 当前Fragment重建帮助类
      */
-    internal class InternalFragmentStatusHelper(parentViewStatusHelper: ViewStatusHelper?) : ViewStatusHelper(parentViewStatusHelper) {
+    internal class InternalFragmentStatusHelper(parentViewStatusHelper: ViewStatusHelper?) :
+        ViewStatusHelper(parentViewStatusHelper) {
         /**
          * 重建次数
          */
         var rebuildSize = 0
 
-        private val KEY_REBUILD = "com.quyunshuo.module.home.fragment.InternalFragment.InternalFragmentStatusHelper.rebuild"
+        private val KEY_REBUILD =
+            "com.quyunshuo.module.home.fragment.InternalFragment.InternalFragmentStatusHelper.rebuild"
 
         override fun onRestoreInstanceStatus(savedInstanceState: Bundle?) {
             super.onRestoreInstanceStatus(savedInstanceState)

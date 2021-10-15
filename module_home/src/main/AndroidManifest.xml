@@ -3,8 +3,10 @@
     package="com.quyunshuo.module.home">
 
     <application>
-        <!--  Main 首页  -->
-        <activity android:name=".activity.MainActivity">
+        <!-- Main 首页 -->
+        <activity
+            android:name=".activity.MainActivity"
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -12,6 +14,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.InternalPagerActivity" />
+        <activity android:name=".activity.SecondActivity" />
     </application>
 
 </manifest>

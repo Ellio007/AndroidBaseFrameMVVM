@@ -4,10 +4,13 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.quyunshuo.androidbaseframemvvm.base.mvvm.vm.EmptyViewModel
+import com.quyunshuo.androidbaseframemvvm.common.constant.RouteUrl
 import com.quyunshuo.androidbaseframemvvm.common.ui.BaseActivity
 import com.quyunshuo.androidbaseframemvvm.common.ui.BaseFragmentStateAdapter
 import com.quyunshuo.module.home.databinding.HomeActivityInternalLayoutBinding
+import com.quyunshuo.module.home.fragment.HomeFragment
 import com.quyunshuo.module.home.fragment.InternalFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.random.Random
@@ -17,6 +20,7 @@ import kotlin.random.Random
  * - 文件描述 : ViewPager2+fragment 模拟Fragment页面重建。
  */
 @AndroidEntryPoint
+@Route(path = RouteUrl.Home.InternalPager)
 class InternalPagerActivity : BaseActivity<HomeActivityInternalLayoutBinding, EmptyViewModel>() {
 
     override val mViewModel: EmptyViewModel by viewModels()
@@ -63,7 +67,7 @@ class InternalPagerActivity : BaseActivity<HomeActivityInternalLayoutBinding, Em
             return when (item) {
                 "首页" -> {
                     //假装首页
-                    InternalFragment()
+                    HomeFragment()
                 }
                 "我的" -> {
                     //假装我的

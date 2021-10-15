@@ -1,6 +1,8 @@
 package com.quyunshuo.androidbaseframemvvm.base.mvvm.v
 
 import android.os.Bundle
+import androidx.core.splashscreen.SplashScreen
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.viewbinding.ViewBinding
 import com.alibaba.android.arouter.launcher.ARouter
 import com.quyunshuo.androidbaseframemvvm.base.mvvm.vm.BaseViewModel
@@ -33,8 +35,15 @@ abstract class BaseFrameActivity<VB : ViewBinding, VM : BaseViewModel> : BaseFra
      */
     private lateinit var mStatusHelper: BaseFrameViewStatusHelperImp
 
+    /**
+     *  protected
+     */
+    protected lateinit var splashScreen: SplashScreen
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // 初始化闪屏页面，splashScreen对象可以设置一些属性
+        splashScreen = installSplashScreen()
         setContentView(mBinding.root)
         // ARouter 依赖注入
         ARouter.getInstance().inject(this)

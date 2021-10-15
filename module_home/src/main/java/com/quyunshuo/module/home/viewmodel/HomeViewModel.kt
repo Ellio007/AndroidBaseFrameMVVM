@@ -1,9 +1,10 @@
-package com.quyunshuo.module.home.activity
+package com.quyunshuo.module.home.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import com.quyunshuo.androidbaseframemvvm.base.mvvm.vm.BaseViewModel
+import com.quyunshuo.module.home.activity.HomeRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.catch
